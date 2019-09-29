@@ -1,18 +1,32 @@
-<div class="row">
-  <div class="col s12 ">
-    <div class="carousel carousel-slider">
-      <a class="carousel-item" href="#one!"
-        ><img src="https://picsum.photos/id/1/800/400"
-      /></a>
-      <a class="carousel-item" href="#two!"
-        ><img src="https://picsum.photos/id/2/800/400"
-      /></a>
-      <a class="carousel-item" href="#three!"
-        ><img src="https://picsum.photos/id/3/800/400"
-      /></a>
-      <a class="carousel-item" href="#four!"
-        ><img src="https://picsum.photos/id/4/800/400"
-      /></a>
-    </div>
-  </div>
+<!--  carousel -->
+<div
+  class="carousel carousel-slider"
+  #carousel
+  (window:resize)="onResize($event)"
+>
+  <a class="carousel-item" href="#one!"
+    ><img src="https://picsum.photos/id/1/1400/1400"
+  /></a>
+  <a class="carousel-item" href="#two!"
+    ><img src="https://picsum.photos/id/2/1400/1400"
+  /></a>
+  <a class="carousel-item" href="#three!"
+    ><img src="https://picsum.photos/id/3/1400/1400"
+  /></a>
+  <a class="carousel-item" href="#four!"
+    ><img src="https://picsum.photos/id/4/1400/1400"
+  /></a>
+</div>
+
+<!-- button area -->
+<div class="button-area">
+  <button class="btn waves-effect waves-light" (click)="prev()">
+    <i class="material-icons left">chevron_left</i>
+    prev
+  </button>
+
+  <button class="btn waves-effect waves-light" (click)="next()">
+    next
+    <i class="material-icons right">chevron_right</i>
+  </button>
 </div>

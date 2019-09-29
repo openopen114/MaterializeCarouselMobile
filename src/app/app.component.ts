@@ -1,5 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import * as M from "../assets/materialize/js/materialize.min.js";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild
+} from "@angular/core";
+import * as M from "materialize-css";
 
 @Component({
   selector: "app-root",
@@ -7,11 +13,28 @@ import * as M from "../assets/materialize/js/materialize.min.js";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit {
-  title = "app";
-  options = { fullWidth: true };
+  @ViewChild("carousel") carousel: ElementRef;
 
-  ngOnInit() {
-    var elems = document.querySelectorAll(".carousel");
-    var instances = M.Carousel.init(elems, this.options);
+  ngOnInit() {}
+
+  ngAfterViewInit() {
+    M.Carousel.init(this.carousel.nativeElement, {});
+  }
+
+  next() {
+    M.Carousel.getInstance(this.carousel.nativeElement).next();
+  }
+
+  prev() {
+    M.Carousel.getInstance(this.carousel.nativeElement).prev();
+  }
+
+  /*
+   * resize event
+   *
+   */
+  onResize(event) {
+    // init again as screen resice. ie let image fit whole screen;
+    M.Carousel.init(this.carousel.nativeElement, {});
   }
 }
